@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Existing files and folders should load normally
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Blog Slugs
+
+RewriteRule ^([a-zA-Z0-9-]+)/?$ blog-details.php?slug=$1 [L,QSA]
+
+ErrorDocument 404 /404.php
